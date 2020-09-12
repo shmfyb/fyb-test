@@ -8,7 +8,7 @@
     "check": {
       "id": "api",
       "name": "HTTP API on port 5000",
-      "http": "http://flask:5000/healthcheck",
+      "http": "http://agent:5000/healthcheck",
       "tls_skip_verify": true,
       "method": "GET",
       "header": {"Content-Type": ["application/json"]},
