@@ -1,0 +1,32 @@
+version: '3.5'
+
+services:
+  server:
+    image: consul_local
+    container_name: server
+    hostname: server
+    ports:
+      - "8300:8300"
+      - "8301:8301"
+      - "8302:8302"
+      - "8400:8400"
+      - "8500:8500"
+      - "8600:8600"
+      - "8600:8600/udp"
+    command: server
+    volumes:
+      - ${PWD}/conf:/consul/conf
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  agent:
+    image: consul_local
+    hostname: agent
+    ports:
+    - 5000:5000
+    container_name: agent
+    depends_on:
+      - server
+    volumes:
+      - ${PWD}/consul.d:/consul/consul.d
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: agent

@@ -1,0 +1,9 @@
+{
+  "service": {
+    "name": "flask",
+    "port": 5000,
+    "connect": {
+      "sidecar_service": {}
+    }
+  }
+}
