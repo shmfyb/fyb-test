@@ -8,7 +8,7 @@
           "upstreams": [
             {
               "destination_name": "flask",
-              "local_bind_port": 5001
+              "local_bind_port": 80
             }
           ]
         }
