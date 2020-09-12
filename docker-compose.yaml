@@ -15,7 +15,6 @@ services:
       - "8600:8600/udp"
     command: server
     volumes:
-      - ${PWD}/conf:/consul/conf
       - /var/run/docker.sock:/var/run/docker.sock
 
   agent:
@@ -27,6 +26,5 @@ services:
     depends_on:
       - server
     volumes:
-      - ${PWD}/consul.d:/consul/consul.d
       - /var/run/docker.sock:/var/run/docker.sock
     command: agent
