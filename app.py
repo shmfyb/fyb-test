@@ -40,7 +40,10 @@ def set_value():
         key, val = qs.split('=')
         c = Consul()
         response = c.kv.put(key, val)
-        result = 'Success', 200 if True == response else 'Fail', 400
+        if response:
+            result = 'Success', 200
+        else:
+            result = 'Fail', 400
     except Exception as e:
         logger.error(f"Fail to set key: {key}, with value: {val}")
         result = 'Fail', 400
@@ -49,5 +52,5 @@ def set_value():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5004)
 
