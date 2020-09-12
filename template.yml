@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   server:
-    image: consul_local
+    image: ${CONSUL_IMAGE}
     container_name: server
     hostname: server
     ports:
@@ -18,7 +18,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
   agent:
-    image: consul_local
+    image: ${CONSUL_IMAGE}
     hostname: agent
     ports:
     - 5000:5000
